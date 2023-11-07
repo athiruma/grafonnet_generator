@@ -7,17 +7,17 @@ terraform {
   }
 }
 
-provider "jsonnet" {
-  jsonnet_path = "jsonnet/vendor"
-}
+#provider "jsonnet" {
+#  jsonnet_path = "jsonnet/vendor"
+#}
 
-data "jsonnet_file" "dashboard" {
-  source = "jsonnet/main.libsonnet"
-}
+#data "jsonnet_file" "dashboard" {
+#  source = "jsonnet/main.libsonnet"
+#}
 
-output "dashboard" {
-  value = data.jsonnet_file.dashboard.rendered
-}
+#output "dashboard" {
+#  value = data.jsonnet_file.dashboard.rendered
+#}
 
 
 output "path" {
