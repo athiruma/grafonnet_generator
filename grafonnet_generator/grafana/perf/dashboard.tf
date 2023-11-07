@@ -11,24 +11,13 @@ terraform {
 #  jsonnet_path = "jsonnet/vendor"
 #}
 
-#data "jsonnet_file" "dashboard" {
-#  source = "jsonnet/main.libsonnet"
-#}
+data "jsonnet_file" "dashboard" {
+  source = "${path.cwd}/jsonnet/main.libsonnet"
+  jsonnet_path = "${path.cwd}/jsonnet/vendor" 
+}
 
-#output "dashboard" {
-#  value = data.jsonnet_file.dashboard.rendered
-#}
-
-
-resource "null_resource" "example" {
-
-  provisioner "local-exec" {
-    command = "ls -ll"
-  }
+output "dashboard" {
+  value = data.jsonnet_file.dashboard.rendered
 }
 
 
-
-output "path" {
-  value = "${path.cwd}/jsonnet/vendor"
-}
