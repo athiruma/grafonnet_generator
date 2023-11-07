@@ -18,3 +18,8 @@ data "jsonnet_file" "dashboard" {
 output "dashboard" {
   value = data.jsonnet_file.dashboard.rendered
 }
+
+
+output "path" {
+  value = "${path.cwd}"
+}
