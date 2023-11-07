@@ -12,16 +12,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Update product versions in main.libsonnet
-        env:
-          PERF_MAIN_LIBSONNET_PATH: grafonnet_generator/grafana/perf/jsonnet/main.libsonnet
-          ELASTICSEARCH: ${{ secrets.ELASTICSEARCH }}
-          ELASTICSEARCH_PORT: ${{ secrets.ELASTICSEARCH_PORT }}
-          ELASTICSEARCH_USER: ${{ secrets.ELASTICSEARCH_USER }}
-          ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
-        run: |
-          pip install elasticsearch==7.17.6
-          cd "$GITHUB_WORKSPACE" && PYTHONPATH=. python grafonnet_generator/common/grafana/update_versions_main_libsonnet.py
+      # - name: Update product versions in main.libsonnet
+      #   env:
+      #     PERF_MAIN_LIBSONNET_PATH: grafonnet_generator/grafana/perf/jsonnet/main.libsonnet
+      #     ELASTICSEARCH: ${{ secrets.ELASTICSEARCH }}
+      #     ELASTICSEARCH_PORT: ${{ secrets.ELASTICSEARCH_PORT }}
+      #     ELASTICSEARCH_USER: ${{ secrets.ELASTICSEARCH_USER }}
+      #     ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
+      #   run: |
+      #     pip install elasticsearch==7.17.6
+      #     cd "$GITHUB_WORKSPACE" && PYTHONPATH=. python grafonnet_generator/common/grafana/update_versions_main_libsonnet.py
 
       - name: Generate grafana dashboard.json using grafonnet container
         run: |
