@@ -20,10 +20,15 @@ terraform {
 #}
 
 
-data "local_file" "foo" {
-  filename = "${path.module}/jsonnet/vendor"
+resource "null_resource" "example" {
+
+  provisioner "local-exec" {
+    command = "ls -ll"
+  }
 }
 
+
+
 output "path" {
-  value = "${path.cwd}"
+  value = "${path.cwd}/jsonnet/vendor"
 }
