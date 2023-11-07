@@ -20,6 +20,10 @@ terraform {
 #}
 
 
+data "local_file" "foo" {
+  filename = "${path.module}/jsonnet/vendor"
+}
+
 output "path" {
   value = "${path.cwd}"
 }
